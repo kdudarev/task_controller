@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     # My apps
     'tasks',
 
+    # Third party apps
+    'bootstrap4',
+
     # Django apps
     'django.contrib.admin',
     'django.contrib.auth',

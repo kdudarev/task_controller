@@ -1,21 +1,23 @@
-{% block page_header %}
-  <h2>{{ task }}</h2>
-{% endblock page_header %}
+{% extends "layout/base.html" %}
+{% load bootstrap4 %}
 
 {% block content %}
-  <div class="card mb-3">
-    <h4 class="card-header">
-      {{ task.date_added|date:'M d, Y H:i' }}
-      <small><a href="#">Edit task</a></small>
-    </h4>
-    <div class="card-body">
-      <h4>Description: {{ task.text|linebreaks }}</h4>
-      <h4>Date Added: {{ task.date_added|linebreaks }}</h4>
-      <h4>Reporter: {{ task.reporter|linebreaks }}</h4>
-      <h4>Assignee: {{ task.assignee|linebreaks }}</h4>
-      <h4>Deadline: {{ task.deadline|linebreaks }}</h4>
-      <h4>Status: {{ task.status|linebreaks }}</h4>
-      <h4>Priority: {{ task.priority|linebreaks }}</h4>
-    </div>
-  </div>
+    <main role="main" class="container">
+        <div class="card">
+            <h4 class="card-header">
+                {{ task }}
+                <small><a href="#">Edit task</a></small>
+            </h4>
+            <div class="card-body">
+                <i><ins>Created by: {{ task.reporter }}
+                  {{ task.date_added|date:'M d, Y' }}</ins></i>
+                <br/><br/><br/>
+                <p><b>Description:</b> <br/>{{ task.text }}</p>
+                <p><b>Assignee:</b> <br/>{{ task.assignee }}</p>
+                <p><b>Deadline:</b> <br/>{{ task.deadline }}</p>
+                <p><b>Status:</b> <br/>{{ task.status }}</p>
+                <p><b>Priority:</b> <br/>{{ task.priority }}</p>
+            </div>
+        </div>
+    </main>
 {% endblock content %}

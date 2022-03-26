@@ -1,0 +1,76 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+     shrink-to-fit=no">
+    <title>Task_controller</title>
+
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 border">
+        <a class="navbar-brand" href="{% url 'tasks:home' %}">
+            <h4>Task Controller</h4></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <span class="navbar-text">
+                            <b>{{ user.username }}<br/>{{ user.email}}</b>
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <b>Log out</b></a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <b>Register</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <b>Log in</b></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main" class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <h5>To Do</h5>
+                <hr/>
+            </div>
+            <div class="col-md-3">
+                <h5>In Progress</h5>
+                <hr/>
+           </div>
+            <div class="col-md-3">
+                <h5>Testing</h5>
+                <hr/>
+            </div>
+            <div class="col-md-3">
+                <h5>Done</h5>
+                <hr/>
+            </div>
+      </div>
+    </main>
+    <br/>
+
+    {% block content %}{% endblock content %}
+
+</body>
+</html>

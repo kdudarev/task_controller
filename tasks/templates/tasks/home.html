@@ -1,18 +1,69 @@
-{% block page_header %}
-  <h2>Tasks</h2>
-{% endblock page_header %}
+{% extends "layout/base.html" %}
+{% load bootstrap4 %}
 
 {% block content %}
-  <ul>
-    {% for task in object_list %}
-      <li>
-        <h3>
-          <a href="{% url 'tasks:task_detail' task.pk %}">{{ task }}</a>
-        </h3>
-      </li>
-    {% empty %}
-      <li><h4>No tasks yet</h4></li>
-    {% endfor %}
-  </ul>
-   <h3><a href="#">Add a new task</a></h3>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                {% for task in object_list %}
+                    {% if task.status == 'to-do' %}
+                        <h5><a href="{% url 'tasks:task_detail' task.pk %}">
+                          {{ task }}</a></h5>
+                        <p>
+                          <i>{{ task.date_added }} - {{ task.deadline }}</i>
+                        </p>
+                        <p>Priority: {{ task.priority }}</p>
+                        <p>Reporter: {{ task.reporter }} <br/>
+                            Assignee: {{ task.assignee }}</p>
+                        <hr/><br/>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-md-3">
+                {% for task in object_list %}
+                    {% if task.status == 'in_progress' %}
+                        <h5><a href="{% url 'tasks:task_detail' task.pk %}">
+                          {{ task }}</a></h5>
+                        <p>
+                          <i>{{ task.date_added }} - {{ task.deadline }}</i>
+                        </p>
+                        <p>Priority: {{ task.priority }}</p>
+                        <p>Reporter: {{ task.reporter }} <br/>
+                            Assignee: {{ task.assignee }}</p>
+                        <hr/><br/>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-md-3">
+                {% for task in object_list %}
+                    {% if task.status == 'testing' %}
+                        <h5><a href="{% url 'tasks:task_detail' task.pk %}">
+                          {{ task }}</a></h5>
+                        <p>
+                          <i>{{ task.date_added }} - {{ task.deadline }}</i>
+                        </p>
+                        <p>Priority: {{ task.priority }}</p>
+                        <p>Reporter: {{ task.reporter }} <br/>
+                            Assignee: {{ task.assignee }}</p>
+                        <hr/><br/>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="col-md-3">
+                {% for task in object_list %}
+                    {% if task.status == 'done' %}
+                        <h5><a href="{% url 'tasks:task_detail' task.pk %}">
+                          {{ task }}</a></h5>
+                        <p>
+                          <i>{{ task.date_added }} - {{ task.deadline }}</i>
+                        </p>
+                        <p>Priority: {{ task.priority }}</p>
+                        <p>Reporter: {{ task.reporter }} <br/>
+                            Assignee: {{ task.assignee }}</p>
+                        <hr/><br/>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock content %}

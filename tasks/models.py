@@ -17,8 +17,7 @@ class Task(models.Model):
     )
     name = models.CharField(max_length=50, verbose_name='Task')
     text = models.TextField(null=True, blank=True, verbose_name='Description')
-    date_added = models.DateTimeField(auto_now_add=True,
-                                      verbose_name='Date added')
+    date_added = models.DateField(auto_now_add=True, verbose_name='Date added')
     reporter = models.ForeignKey(User, related_name='reporter',
                                  on_delete=models.SET('isDeleted'),
                                  verbose_name='Reporter')
