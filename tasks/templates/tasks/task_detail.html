@@ -7,7 +7,12 @@
             <h4 class="card-header">
                 {{ task }}
                 <button type="button" class="btn btn-outline-secondary">
-                    <a href="{% url 'tasks:edit_task' task.pk %}">Edit task</a>
+                    <a href="{% url 'tasks:edit_task' task.pk %}">
+                        Edit task</a>
+                </button>
+                <button type="button" class="btn btn-outline-danger">
+                    <a href="{% url 'tasks:delete_task' task.pk %}">
+                        Delete task</a>
                 </button>
             </h4>
             <div class="card-body">

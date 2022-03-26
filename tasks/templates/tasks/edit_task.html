@@ -15,6 +15,9 @@
                             {% bootstrap_form form %}
                             <button class="btn btn-secondary">
                                 Save changes</button>
+                            <a href="{% url 'tasks:delete_task' task.pk %}"
+                               class="btn btn-danger active" role="button"
+                               aria-pressed="true">Delete task</a>
                         </form>
                     </div>
                 </div>

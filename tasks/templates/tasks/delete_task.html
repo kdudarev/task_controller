@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if user.pk == task.reporter.pk %}
+            <main role="main" class="container">
+                <h1>Are you sure you want to delete the task "
+                <a href="{{ task.get_absolute_url }}">{{ task }}</a>"?</h1>
+                <p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <button name="submit" class="btn btn-danger">
+                            Yes, I`m sure</button>
+                    </form>
+                    <br/>
+                </p>
+            </main>
+        {% endif %}
+    {% endif %}
+{% endblock content %}

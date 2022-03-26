@@ -1,5 +1,6 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, \
+    UpdateView, DeleteView
 
 from .forms import TaskForm, EditTaskForm
 from .models import Task
@@ -20,7 +21,6 @@ class AddTaskView(CreateView):
     model = Task
     form_class = TaskForm
     template_name = 'tasks/add_task.html'
-    success_url = reverse_lazy('tasks:home')
 
     def form_valid(self, form):
         form.instance.reporter = self.request.user
@@ -31,4 +31,9 @@ class EditTaskView(UpdateView):
     model = Task
     form_class = EditTaskForm
     template_name = 'tasks/edit_task.html'
+
+
+class DeleteTaskView(DeleteView):
+    model = Task
+    template_name = 'tasks/delete_task.html'
     success_url = reverse_lazy('tasks:home')
