@@ -22,53 +22,45 @@
                 data-target="#navbarCollapse" aria-controls="navbarCollapse"
                 aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span></button>
+        {% if user.is_authenticated %}
+            <button type="button" class="btn btn-outline-secondary">
+                <a class="navbar-brand" href="{% url 'tasks:add_task' %}">
+                    <small>+ Add task</small></a>
+            </button>
+        {% endif %}
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <span class="navbar-text">
-                            <b>{{ user.username }}<br/>{{ user.email}}</b>
+                        <span class="navbar-brand">
+                            <small>
+                                {{ user.username }}<br/>{{ user.email}}
+                            </small>
                         </span>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <b>Log out</b></a>
+                        <button type="button" class="btn btn-outline-secondary">
+                            <a class="navbar-brand" href="#">
+                                <small>Log out</small></a>
+                        </button>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <b>Register</b></a>
+                        <button type="button" class="btn btn-outline-secondary">
+                            <a class="navbar-brand" href="#">
+                                <small>Register</small></a>
+                        </button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <b>Log in</b></a>
+                        <button type="button" class="btn btn-outline-secondary">
+                            <a class="nav-link" href="#">
+                                <small>Log in</small></a>
+                        </button>
                     </li>
                 {% endif %}
             </ul>
         </div>
     </nav>
-
-    <main role="main" class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
-                <h5>To Do</h5>
-                <hr/>
-            </div>
-            <div class="col-md-3">
-                <h5>In Progress</h5>
-                <hr/>
-           </div>
-            <div class="col-md-3">
-                <h5>Testing</h5>
-                <hr/>
-            </div>
-            <div class="col-md-3">
-                <h5>Done</h5>
-                <hr/>
-            </div>
-      </div>
-    </main>
-    <br/>
 
     {% block content %}{% endblock content %}
 
