@@ -1,8 +1,8 @@
 from django.urls import reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
-from tasks.forms import TaskForm
-from tasks.models import Task
+from .forms import TaskForm, EditTaskForm
+from .models import Task
 
 
 class HomeView(ListView):
@@ -25,3 +25,10 @@ class AddTaskView(CreateView):
     def form_valid(self, form):
         form.instance.reporter = self.request.user
         return super(AddTaskView, self).form_valid(form)
+
+
+class EditTaskView(UpdateView):
+    model = Task
+    form_class = EditTaskForm
+    template_name = 'tasks/edit_task.html'
+    success_url = reverse_lazy('tasks:home')

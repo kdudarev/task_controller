@@ -6,7 +6,9 @@
         <div class="card">
             <h4 class="card-header">
                 {{ task }}
-                <small><a href="#">Edit task</a></small>
+                <button type="button" class="btn btn-outline-secondary">
+                    <a href="{% url 'tasks:edit_task' task.pk %}">Edit task</a>
+                </button>
             </h4>
             <div class="card-body">
                 <i><ins>Created by: {{ task.reporter }}
