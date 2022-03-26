@@ -1,0 +1,18 @@
+{% block page_header %}
+  <h2>Tasks</h2>
+{% endblock page_header %}
+
+{% block content %}
+  <ul>
+    {% for task in object_list %}
+      <li>
+        <h3>
+          <a href="{% url 'tasks:task_detail' task.pk %}">{{ task }}</a>
+        </h3>
+      </li>
+    {% empty %}
+      <li><h4>No tasks yet</h4></li>
+    {% endfor %}
+  </ul>
+   <h3><a href="#">Add a new task</a></h3>
+{% endblock content %}

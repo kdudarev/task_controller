@@ -1,0 +1,21 @@
+{% block page_header %}
+  <h2>{{ task }}</h2>
+{% endblock page_header %}
+
+{% block content %}
+  <div class="card mb-3">
+    <h4 class="card-header">
+      {{ task.date_added|date:'M d, Y H:i' }}
+      <small><a href="#">Edit task</a></small>
+    </h4>
+    <div class="card-body">
+      <h4>Description: {{ task.text|linebreaks }}</h4>
+      <h4>Date Added: {{ task.date_added|linebreaks }}</h4>
+      <h4>Reporter: {{ task.reporter|linebreaks }}</h4>
+      <h4>Assignee: {{ task.assignee|linebreaks }}</h4>
+      <h4>Deadline: {{ task.deadline|linebreaks }}</h4>
+      <h4>Status: {{ task.status|linebreaks }}</h4>
+      <h4>Priority: {{ task.priority|linebreaks }}</h4>
+    </div>
+  </div>
+{% endblock content %}
