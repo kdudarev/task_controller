@@ -39,21 +39,27 @@
                         </span>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-outline-secondary">
-                            <a class="navbar-brand" href="#">
+                        <button type="button"
+                                class="btn btn-outline-secondary">
+                            <a class="navbar-brand"
+                               href="{% url 'users:logout' %}">
                                 <small>Log out</small></a>
                         </button>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <button type="button" class="btn btn-outline-secondary">
-                            <a class="navbar-brand" href="#">
+                        <button type="button"
+                                class="btn btn-outline-secondary">
+                            <a class="navbar-brand"
+                               href="{% url 'users:register' %}">
                                 <small>Register</small></a>
                         </button>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-outline-secondary">
-                            <a class="navbar-brand" href="#">
+                        <button type="button"
+                                class="btn btn-outline-secondary">
+                            <a class="navbar-brand"
+                               href="{% url 'users:login' %}">
                                 <small>Log in</small></a>
                         </button>
                     </li>

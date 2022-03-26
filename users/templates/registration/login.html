@@ -1,0 +1,17 @@
+{% extends "layout/base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <main role="main" class="container">
+        <h1>Log in to your account.</h1>
+        {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+        {% endif %}
+        <form action="{% url 'users:login' %}" method="post" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button name="submit" class="btn btn-secondary">Log in</button>
+            <input type="hidden" name="next" value="{% url 'tasks:home' %}" />
+        </form>
+    </main>
+{% endblock content %}

@@ -6,21 +6,28 @@
         <div class="card">
             <h4 class="card-header">
                 {{ task }}
-                <button type="button" class="btn btn-outline-secondary">
-                    <a href="{% url 'tasks:edit_task' task.pk %}">
-                        Edit task</a>
-                </button>
-                <button type="button" class="btn btn-outline-danger">
-                    <a href="{% url 'tasks:delete_task' task.pk %}">
-                        Delete task</a>
-                </button>
+                {% if user.is_authenticated %}
+                    {% if user.pk == task.reporter.pk %}
+                        <button type="button" class="btn btn-outline-secondary">
+                            <a href="{% url 'tasks:edit_task' task.pk %}">
+                                Edit task</a>
+                        </button>
+                        <button type="button" class="btn btn-outline-danger">
+                            <a href="{% url 'tasks:delete_task' task.pk %}">
+                                Delete task</a>
+                        </button>
+                    {% endif %}
+                {% endif %}
             </h4>
             <div class="card-body">
-                <i><ins>Created by: {{ task.reporter }}
-                  {{ task.date_added|date:'M d, Y' }}</ins></i>
+                <i><ins>
+                    Created by: {{ task.reporter }} ({{ task.reporter.email }})
+                    {{ task.date_added|date:'M d, Y' }}
+                </ins></i>
                 <br/><br/><br/>
                 <p><b>Description:</b> <br/>{{ task.text }}</p>
-                <p><b>Assignee:</b> <br/>{{ task.assignee }}</p>
+                <p><b>Assignee:</b> <br/>{{ task.assignee }}
+                    ({{ task.assignee.email }})</p>
                 <p><b>Deadline:</b> <br/>{{ task.deadline }}</p>
                 <p><b>Status:</b> <br/>{{ task.status }}</p>
                 <p><b>Priority:</b> <br/>{{ task.priority }}</p>

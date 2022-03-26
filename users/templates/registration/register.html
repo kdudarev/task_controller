@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+    <main role="main" class="container">
+        <h1>Registration.</h1>
+        <form action="{% url 'users:register' %}" method="post" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button name="submit" class="btn btn-secondary">Register</button>
+            <input type="hidden" name="next" value="{% url 'tasks:home' %}" />
+        </form>
+    </main>
+{% endblock content %}

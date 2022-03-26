@@ -34,8 +34,10 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter }} <br/>
-                            Assignee: {{ task.assignee }}</p>
+                        <p>Reporter: {{ task.reporter }}
+                            ({{ task.reporter.email }})<br/>
+                            Assignee: {{ task.assignee }}
+                            ({{ task.assignee.email }})</p>
                         <hr/><br/>
                     {% endif %}
                 {% endfor %}
@@ -49,8 +51,10 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter }} <br/>
-                            Assignee: {{ task.assignee }}</p>
+                        <p>Reporter: {{ task.reporter }}
+                            ({{ task.reporter.email }})<br/>
+                            Assignee: {{ task.assignee }}
+                            ({{ task.assignee.email }})</p>
                         <hr/><br/>
                     {% endif %}
                 {% endfor %}
@@ -64,8 +68,10 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter }} <br/>
-                            Assignee: {{ task.assignee }}</p>
+                        <p>Reporter: {{ task.reporter }}
+                            ({{ task.reporter.email }})<br/>
+                            Assignee: {{ task.assignee }}
+                            ({{ task.assignee.email }})</p>
                         <hr/><br/>
                     {% endif %}
                 {% endfor %}
@@ -79,8 +85,10 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter }} <br/>
-                            Assignee: {{ task.assignee }}</p>
+                        <p>Reporter: {{ task.reporter }}
+                            ({{ task.reporter.email }})<br/>
+                            Assignee: {{ task.assignee }}
+                            ({{ task.assignee.email }})</p>
                         <hr/><br/>
                     {% endif %}
                 {% endfor %}
