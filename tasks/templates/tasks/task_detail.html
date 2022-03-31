@@ -21,12 +21,14 @@
             </h4>
             <div class="card-body">
                 <i><ins>
-                    Created by: {{ task.reporter }} ({{ task.reporter.email }})
+                    Created by: {{ task.reporter.first_name }}
+                    {{ task.reporter.last_name }} ({{ task.reporter.email }})
                     {{ task.date_added|date:'M d, Y' }}
                 </ins></i>
                 <br/><br/><br/>
                 <p><b>Description:</b> <br/>{{ task.text }}</p>
-                <p><b>Assignee:</b> <br/>{{ task.assignee }}
+                <p><b>Assignee:</b> <br/>{{ task.assignee.first_name }}
+                    {{ task.assignee.last_name }}
                     ({{ task.assignee.email }})</p>
                 <p><b>Deadline:</b> <br/>{{ task.deadline }}</p>
                 <p><b>Status:</b> <br/>{{ task.status }}</p>

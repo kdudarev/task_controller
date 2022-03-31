@@ -34,9 +34,11 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter }}
+                        <p>Reporter: {{ task.reporter.first_name }}
+                            {{ task.reporter.last_name }}
                             ({{ task.reporter.email }})<br/>
-                            Assignee: {{ task.assignee }}
+                            Assignee: {{ task.assignee.first_name }}
+                            {{ task.assignee.last_name }}
                             ({{ task.assignee.email }})</p>
                         <hr/><br/>
                     {% endif %}
@@ -51,9 +53,11 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter }}
+                        <p>Reporter: {{ task.reporter.first_name }}
+                            {{ task.reporter.last_name }}
                             ({{ task.reporter.email }})<br/>
-                            Assignee: {{ task.assignee }}
+                            Assignee: {{ task.assignee.first_name }}
+                            {{ task.assignee.last_name }}
                             ({{ task.assignee.email }})</p>
                         <hr/><br/>
                     {% endif %}
@@ -68,9 +72,11 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter }}
+                        <p>Reporter: {{ task.reporter.first_name }}
+                            {{ task.reporter.last_name }}
                             ({{ task.reporter.email }})<br/>
-                            Assignee: {{ task.assignee }}
+                            Assignee: {{ task.assignee.first_name }}
+                            {{ task.assignee.last_name }}
                             ({{ task.assignee.email }})</p>
                         <hr/><br/>
                     {% endif %}
@@ -85,9 +91,11 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter }}
+                        <p>Reporter: {{ task.reporter.first_name }}
+                            {{ task.reporter.last_name }}
                             ({{ task.reporter.email }})<br/>
-                            Assignee: {{ task.assignee }}
+                            Assignee: {{ task.assignee.first_name }}
+                            {{ task.assignee.last_name }}
                             ({{ task.assignee.email }})</p>
                         <hr/><br/>
                     {% endif %}

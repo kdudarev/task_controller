@@ -1,7 +1,7 @@
 {% load bootstrap4 %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
 
     <meta charset="UTF-8">
@@ -39,12 +39,22 @@
                         </span>
                     </li>
                     <li class="nav-item">
-                        <button type="button"
-                                class="btn btn-outline-secondary">
-                            <a class="navbar-brand"
-                               href="{% url 'users:logout' %}">
-                                <small>Log out</small></a>
-                        </button>
+                        <span class="navbar-brand">
+                            <button type="button" class="btn btn-outline-secondary">
+                                <a class="navbar-brand" href="{% url 'users:edit_profile' %}">
+                                    <small>Edit profile</small></a>
+                            </button>
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="navbar-brand">
+                            <button type="button"
+                                    class="btn btn-outline-secondary">
+                                <a class="navbar-brand"
+                                   href="{% url 'users:logout' %}">
+                                    <small>Log out</small></a>
+                            </button>
+                        </span>
                     </li>
                 {% else %}
                     <li class="nav-item">
