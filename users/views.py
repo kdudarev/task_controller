@@ -3,17 +3,26 @@ from django.contrib.auth.views import PasswordChangeView
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import generic
-from django.views.generic import DetailView, UpdateView
+from django.views.generic import DetailView, UpdateView, CreateView
 
 from tasks.models import Profile
-from users.forms import SignUpForm, EditProfileForm
+from users.forms import SignUpForm, EditProfileForm, ProfilePageForm
+
+
+class CreateProfilePageView(CreateView):
+    model = Profile
+    form_class = ProfilePageForm
+    template_name = 'registration/create_user_profile_page.html'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class EditProfilePageView(UpdateView):
     model = Profile
     template_name = 'registration/edit_profile_page.html'
     fields = ['bio', 'profile_pic', 'github_url', 'telegram_url']
-    success_url = reverse_lazy('tasks:home')
 
 
 class PasswordsChangeView(PasswordChangeView):

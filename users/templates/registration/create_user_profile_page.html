@@ -1,20 +1,16 @@
 {% extends "layout/base.html" %}
-{% load static %}
 {% load bootstrap4 %}
 
 {% block content %}
     {% if user.is_authenticated %}
         <main role="main" class="container">
             <div class="card">
-                <h4 class="card-header">Edit profile settings</h4>
+                <h4 class="card-header">Create profile page</h4>
                 <div class="card-body">
-                    {{ user.profile.bio }}
-                    <br/><br/>
-                    <form method="POST">
+                    <form method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <button class="btn btn-secondary">
-                            Save changes</button>
+                        <button class="btn btn-secondary">Create Profile Page</button>
                     </form>
                 </div>
             </div>

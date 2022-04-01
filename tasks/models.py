@@ -14,6 +14,9 @@ class Profile(models.Model):
     def __str__(self):
         return str(self.user)
 
+    def get_absolute_url(self):
+        return reverse('users:show_profile_page', args=[self.pk])
+
     class Meta:
         verbose_name_plural = 'Profiles'
         verbose_name = 'Profile'

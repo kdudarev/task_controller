@@ -1,11 +1,12 @@
 {% extends "layout/base.html" %}
 {% load static %}
+{% load bootstrap4 %}
 
 {% block content %}
     {% if user.is_authenticated %}
         <main role="main" class="container">
             <div class="card">
-                <h4 class="card-header">User Profile</h4>
+                <h4 class="card-header">User profile</h4>
                 <div class="card-body">
                     <button type="button" class="btn btn-outline-secondary">
                         <a href="{% url 'users:edit_profile_page' page_user.id %}">
@@ -21,19 +22,17 @@
                                 class="img-fluid rounded-start">
                         {% endif %}
                     </div>
-                    <div class="col-md-10">
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                {{ page_user.user.first_name }}
-                                {{ page_user.user.last_name }}</h5>
-                            <p class="small text-muted">
-                                <a href="{{ page_user.github_url }}">
-                                    Github</a> |
-                                <a href="{{ page_user.telegram_url }}">
-                                    Telegram</a>
-                            </p>
-                            <p class="card-text"> {{ page_user.bio }} </p>
-                        </div>
+                    <div class="col-md-10"></br>
+                        <h5 class="card-title">
+                            {{ page_user.user.first_name }}
+                            {{ page_user.user.last_name }}</h5>
+                        <p class="small text-muted">
+                            <a href="{{ page_user.github_url }}">
+                                Github</a> |
+                            <a href="{{ page_user.telegram_url }}">
+                                Telegram</a>
+                        </p>
+                        <p class="card-text"> {{ page_user.bio }} </p>
                     </div>
                 </div>
             </div>

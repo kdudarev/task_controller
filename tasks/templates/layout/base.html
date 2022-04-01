@@ -40,6 +40,16 @@
                                         {{ user.username }}<br/>{{ user.email}}</a>
                                 {% else %}
                                     {{ user.username }}<br/>{{ user.email}}
+                                    <li class="nav-item">
+                                        <span class="navbar-brand">
+                                            <button type="button"
+                                                    class="btn btn-outline-secondary">
+                                                <a class="navbar-brand"
+                                                   href="{% url 'users:create_profile_page' %}">
+                                                    <small>Create profile page</small></a>
+                                            </button>
+                                        </span>
+                                    </li>
                                 {% endif %}
                             </small>
                         </span>

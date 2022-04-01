@@ -2,7 +2,7 @@ from django.urls import path, include
 
 from . import views
 from .views import UserRegisterView, UserEditView, PasswordsChangeView, \
-    ShowProfilePageView, EditProfilePageView
+    ShowProfilePageView, EditProfilePageView, CreateProfilePageView
 
 app_name = 'users'
 
@@ -17,4 +17,6 @@ urlpatterns = [
          name='show_profile_page'),
     path('edit_profile_page/<int:pk>/', EditProfilePageView.as_view(),
          name='edit_profile_page'),
+    path('<create_profile_page/', CreateProfilePageView.as_view(),
+         name='create_profile_page'),
 ]
