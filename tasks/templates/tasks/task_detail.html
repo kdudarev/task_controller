@@ -20,16 +20,32 @@
                 {% endif %}
             </h4>
             <div class="card-body">
-                <i><ins>
-                    Created by: {{ task.reporter.first_name }}
-                    {{ task.reporter.last_name }} ({{ task.reporter.email }})
-                    {{ task.date_added|date:'M d, Y' }}
-                </ins></i>
+                {% if task.reporter.profile %}
+                    <i>
+                        Created by:
+                        <a href="{% url 'users:show_profile_page' task.reporter.profile.id %}">
+                            {{ task.reporter.first_name }}
+                            {{ task.reporter.last_name }} ({{ task.reporter.email }})</a>
+                        {{ task.date_added|date:'M d, Y' }}
+                    </i>
+                {% else %}
+                    <i>
+                        Created by: {{ task.reporter.first_name }}
+                        {{ task.reporter.last_name }} ({{ task.reporter.email }})
+                        {{ task.date_added|date:'M d, Y' }}
+                    </i>
+                {% endif %}
                 <br/><br/><br/>
                 <p><b>Description:</b> <br/>{{ task.text }}</p>
-                <p><b>Assignee:</b> <br/>{{ task.assignee.first_name }}
-                    {{ task.assignee.last_name }}
-                    ({{ task.assignee.email }})</p>
+                {% if task.assignee.profile %}
+                    <p><b>Assignee:</b> <br/>
+                        <a href="{% url 'users:show_profile_page' task.assignee.profile.id %}">
+                            {{ task.assignee.first_name }}
+                            {{ task.assignee.last_name }} ({{ task.assignee.email }})</a></p>
+                {% else %}
+                    <p><b>Assignee:</b> <br/>{{ task.assignee.first_name }}
+                        {{ task.assignee.last_name }} ({{ task.assignee.email }})</p>
+                {% endif %}
                 <p><b>Deadline:</b> <br/>{{ task.deadline }}</p>
                 <p><b>Status:</b> <br/>{{ task.status }}</p>
                 <p><b>Priority:</b> <br/>{{ task.priority }}</p>

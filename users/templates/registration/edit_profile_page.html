@@ -1,0 +1,21 @@
+{% extends "layout/base.html" %}
+{% load bootstrap4 %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if user.id == profile.user.id %}
+            <main role="main" class="container">
+                <div class="card">
+                    <h4 class="card-header">Edit Profile Page</h4>
+                    <div class="card-body">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="btn btn-secondary">Save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        {% endif %}
+    {% endif %}
+{% endblock content %}

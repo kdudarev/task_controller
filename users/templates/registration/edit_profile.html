@@ -7,6 +7,7 @@
             <div class="card">
                 <h4 class="card-header">Edit profile</h4>
                 <div class="card-body">
+                    {{ user.profile.bio }}
                     <br/><br/>
                     <form method="POST">
                         {% csrf_token %}

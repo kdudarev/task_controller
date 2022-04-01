@@ -34,15 +34,23 @@
                     <li class="nav-item">
                         <span class="navbar-brand">
                             <small>
-                                {{ user.username }}<br/>{{ user.email}}
+                                {% if user.profile %}
+                                    <a class="nav-link"
+                                       href="{% url 'users:show_profile_page' user.profile.id %}">
+                                        {{ user.username }}<br/>{{ user.email}}</a>
+                                {% else %}
+                                    {{ user.username }}<br/>{{ user.email}}
+                                {% endif %}
                             </small>
                         </span>
                     </li>
                     <li class="nav-item">
                         <span class="navbar-brand">
-                            <button type="button" class="btn btn-outline-secondary">
-                                <a class="navbar-brand" href="{% url 'users:edit_profile' %}">
-                                    <small>Edit profile</small></a>
+                            <button type="button"
+                                    class="btn btn-outline-secondary">
+                                <a class="navbar-brand"
+                                   href="{% url 'users:edit_profile' %}">
+                                    <small>Edit profile settings</small></a>
                             </button>
                         </span>
                     </li>

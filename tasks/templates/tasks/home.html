@@ -34,12 +34,28 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter.first_name }}
-                            {{ task.reporter.last_name }}
-                            ({{ task.reporter.email }})<br/>
-                            Assignee: {{ task.assignee.first_name }}
-                            {{ task.assignee.last_name }}
-                            ({{ task.assignee.email }})</p>
+                        <p>
+                            {% if task.reporter.profile %}
+                                Reporter: <a href="{% url 'users:show_profile_page' task.reporter.profile.id %}">
+                                {{ task.reporter.first_name }}
+                                {{ task.reporter.last_name }}
+                                ({{ task.reporter.email }})</a><br/>
+                            {% else %}
+                                Reporter: {{ task.reporter.first_name }}
+                                {{ task.reporter.last_name }}
+                                ({{ task.reporter.email }})<br/>
+                            {% endif %}
+                            {% if task.assignee.profile %}
+                                Assignee: <a href="{% url 'users:show_profile_page' task.assignee.profile.id %}">
+                                    {{ task.assignee.first_name }}
+                                    {{ task.assignee.last_name }}
+                                    ({{ task.assignee.email }})</a>
+                            {% else %}
+                                Assignee: {{ task.assignee.first_name }}
+                                    {{ task.assignee.last_name }}
+                                    ({{ task.assignee.email }})
+                            {% endif %}
+                        </p>
                         <hr/><br/>
                     {% endif %}
                 {% endfor %}
@@ -53,12 +69,28 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter.first_name }}
-                            {{ task.reporter.last_name }}
-                            ({{ task.reporter.email }})<br/>
-                            Assignee: {{ task.assignee.first_name }}
-                            {{ task.assignee.last_name }}
-                            ({{ task.assignee.email }})</p>
+                        <p>
+                            {% if task.reporter.profile %}
+                                Reporter: <a href="{% url 'users:show_profile_page' task.reporter.profile.id %}">
+                                {{ task.reporter.first_name }}
+                                {{ task.reporter.last_name }}
+                                ({{ task.reporter.email }})</a><br/>
+                            {% else %}
+                                Reporter: {{ task.reporter.first_name }}
+                                {{ task.reporter.last_name }}
+                                ({{ task.reporter.email }})<br/>
+                            {% endif %}
+                            {% if task.assignee.profile %}
+                                Assignee: <a href="{% url 'users:show_profile_page' task.assignee.profile.id %}">
+                                    {{ task.assignee.first_name }}
+                                    {{ task.assignee.last_name }}
+                                    ({{ task.assignee.email }})</a>
+                            {% else %}
+                                Assignee: {{ task.assignee.first_name }}
+                                    {{ task.assignee.last_name }}
+                                    ({{ task.assignee.email }})
+                            {% endif %}
+                        </p>
                         <hr/><br/>
                     {% endif %}
                 {% endfor %}
@@ -72,12 +104,28 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter.first_name }}
-                            {{ task.reporter.last_name }}
-                            ({{ task.reporter.email }})<br/>
-                            Assignee: {{ task.assignee.first_name }}
-                            {{ task.assignee.last_name }}
-                            ({{ task.assignee.email }})</p>
+                        <p>
+                            {% if task.reporter.profile %}
+                                Reporter: <a href="{% url 'users:show_profile_page' task.reporter.profile.id %}">
+                                {{ task.reporter.first_name }}
+                                {{ task.reporter.last_name }}
+                                ({{ task.reporter.email }})</a><br/>
+                            {% else %}
+                                Reporter: {{ task.reporter.first_name }}
+                                {{ task.reporter.last_name }}
+                                ({{ task.reporter.email }})<br/>
+                            {% endif %}
+                            {% if task.assignee.profile %}
+                                Assignee: <a href="{% url 'users:show_profile_page' task.assignee.profile.id %}">
+                                    {{ task.assignee.first_name }}
+                                    {{ task.assignee.last_name }}
+                                    ({{ task.assignee.email }})</a>
+                            {% else %}
+                                Assignee: {{ task.assignee.first_name }}
+                                    {{ task.assignee.last_name }}
+                                    ({{ task.assignee.email }})
+                            {% endif %}
+                        </p>
                         <hr/><br/>
                     {% endif %}
                 {% endfor %}
@@ -91,12 +139,28 @@
                           <i>{{ task.date_added }} - {{ task.deadline }}</i>
                         </p>
                         <p>Priority: {{ task.priority }}</p>
-                        <p>Reporter: {{ task.reporter.first_name }}
-                            {{ task.reporter.last_name }}
-                            ({{ task.reporter.email }})<br/>
-                            Assignee: {{ task.assignee.first_name }}
-                            {{ task.assignee.last_name }}
-                            ({{ task.assignee.email }})</p>
+                        <p>
+                            {% if task.reporter.profile %}
+                                Reporter: <a href="{% url 'users:show_profile_page' task.reporter.profile.id %}">
+                                {{ task.reporter.first_name }}
+                                {{ task.reporter.last_name }}
+                                ({{ task.reporter.email }})</a><br/>
+                            {% else %}
+                                Reporter: {{ task.reporter.first_name }}
+                                {{ task.reporter.last_name }}
+                                ({{ task.reporter.email }})<br/>
+                            {% endif %}
+                            {% if task.assignee.profile %}
+                                Assignee: <a href="{% url 'users:show_profile_page' task.assignee.profile.id %}">
+                                    {{ task.assignee.first_name }}
+                                    {{ task.assignee.last_name }}
+                                    ({{ task.assignee.email }})</a>
+                            {% else %}
+                                Assignee: {{ task.assignee.first_name }}
+                                    {{ task.assignee.last_name }}
+                                    ({{ task.assignee.email }})
+                            {% endif %}
+                        </p>
                         <hr/><br/>
                     {% endif %}
                 {% endfor %}
